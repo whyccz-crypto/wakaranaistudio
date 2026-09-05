@@ -1406,57 +1406,469 @@ footer {
 @media (max-width: 1023px) {
   body {
     min-width: 0;
-    background: var(--ink);
-  }
-
-  body > :not(.mobile-block) {
-    display: none !important;
   }
 
   .mobile-block {
+    display: none;
+  }
+
+  .site-header {
+    grid-template-areas:
+      "brand actions"
+      "nav nav";
+    grid-template-columns: minmax(0, 1fr) auto;
+    min-height: 0;
+    gap: 10px 14px;
+    padding: 12px 20px;
+  }
+
+  .brand {
+    grid-area: brand;
+  }
+
+  .site-nav {
+    grid-area: nav;
     display: grid;
-    min-height: 100vh;
-    padding: 40px 24px;
-    place-content: center;
-    color: var(--cream);
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+  }
+
+  .site-nav a {
+    padding: 8px 10px;
     text-align: center;
   }
 
-  .mobile-block-mark {
-    position: relative;
+  .header-actions {
+    grid-area: actions;
+  }
+
+  main,
+  footer {
+    width: min(100% - 32px, 760px);
+  }
+
+  [data-nav-section] {
+    scroll-margin-top: 152px;
+  }
+
+  .music-experience {
+    grid-template-columns: 1fr;
+    margin: 18px 0 72px;
+  }
+
+  .music-player {
     display: grid;
-    width: 70px;
-    height: 70px;
+    grid-template-columns: minmax(230px, .8fr) minmax(0, 1.2fr);
+    align-items: center;
+    gap: 24px;
+  }
+
+  .track-info {
+    padding: 0;
+  }
+
+  .lyrics-card {
+    min-height: 540px;
+  }
+
+  .lyrics-scroll {
+    height: 440px;
+    padding-top: 160px;
+    padding-bottom: 190px;
+  }
+
+  .hero {
+    min-height: 0;
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding: 36px 0 72px;
+  }
+
+  h1 {
+    font-size: clamp(4rem, 11vw, 6rem);
+  }
+
+  .intro,
+  .stock-panel {
+    max-width: none;
+  }
+
+  .wheel-stage {
+    width: min(100%, 580px);
+  }
+
+  .prizes {
+    padding: 82px 0 72px;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    gap: 28px;
+  }
+
+  .prize-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .prize-card {
+    min-height: 440px;
+  }
+
+  .prize-card:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .history-section {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 72px 0;
+  }
+
+  .text-button {
+    grid-column: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-intro-mark {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 22px;
+    border-radius: 18px;
+  }
+
+  .site-intro h1 {
+    max-width: 290px;
+    font-size: clamp(2rem, 11vw, 3.2rem);
+    line-height: .95;
+  }
+
+  .site-intro-line {
+    width: min(220px, 62vw);
+    margin-top: 24px;
+  }
+
+  .site-header {
+    gap: 9px 8px;
+    padding: 10px 12px;
+  }
+
+  .brand {
+    gap: 9px;
+  }
+
+  .brand-mark {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    box-shadow: 4px 4px 0 var(--orange);
+  }
+
+  .brand strong {
+    font-size: .68rem;
+    letter-spacing: .07em;
+  }
+
+  .brand small {
+    display: none;
+  }
+
+  .language-toggle {
+    min-width: 50px;
+    padding: 8px 10px;
+    font-size: .68rem;
+  }
+
+  .live-pill {
+    min-width: 38px;
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .live-pill b {
+    position: absolute;
+    width: 1px;
+    height: 1px;
     overflow: hidden;
-    margin: 0 auto 28px;
-    place-items: center;
-    border: 1px solid rgba(255, 255, 255, .25);
-    border-radius: 20px;
-    background: var(--cream);
-    font: 900 2rem Georgia, serif;
-    box-shadow: 7px 7px 0 #f0cf78;
-    transform: rotate(-4deg);
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
   }
 
-  .mobile-block p {
-    margin-bottom: 14px;
-    color: #f0cf78;
-    font-size: .72rem;
-    font-weight: 900;
-    letter-spacing: .18em;
+  .site-nav {
+    gap: 3px;
+    padding: 4px;
   }
 
-  .mobile-block h1 {
-    margin-bottom: 20px;
-    font-size: clamp(3rem, 15vw, 5rem);
-    line-height: .88;
+  .site-nav a {
+    padding: 8px 4px;
+    font-size: .62rem;
+    letter-spacing: .045em;
   }
 
-  .mobile-block span {
-    color: rgba(255, 248, 233, .68);
+  main,
+  footer {
+    width: calc(100% - 24px);
+  }
+
+  [data-nav-section] {
+    scroll-margin-top: 138px;
+  }
+
+  .music-experience {
+    gap: 12px;
+    margin: 12px 0 56px;
+    padding: 10px;
+    border-radius: 24px;
+  }
+
+  .music-player,
+  .lyrics-card {
+    border-radius: 18px;
+  }
+
+  .music-player {
+    display: block;
+    padding: 12px;
+  }
+
+  .album-art {
+    border-radius: 15px;
+  }
+
+  .album-art::after {
+    inset: 10px;
+    border-radius: 10px;
+  }
+
+  .album-art small {
+    right: 18px;
+    bottom: 18px;
+    left: 18px;
+  }
+
+  .track-info {
+    padding: 22px 3px 3px;
+  }
+
+  .track-info h2 {
+    font-size: clamp(1.8rem, 10vw, 2.6rem);
+  }
+
+  .audio-controls {
+    gap: 12px;
+  }
+
+  .audio-play {
+    width: 46px;
+    height: 46px;
+  }
+
+  .lyrics-card {
+    min-height: 500px;
+    padding: 20px 6px 8px 16px;
+  }
+
+  .lyrics-card::before {
+    top: 74px;
+  }
+
+  .lyrics-heading {
+    padding: 0 12px 14px 2px;
+  }
+
+  .lyrics-heading h2 {
+    font-size: 1.2rem;
+  }
+
+  .lyrics-scroll {
+    height: 420px;
+    padding: 145px 10px 175px 0;
+  }
+
+  .lyric-line {
+    padding: 11px 7px;
+  }
+
+  .lyric-japanese {
     font-size: 1rem;
-    line-height: 1.65;
   }
+
+  .lyric-line.is-active {
+    transform: translateX(3px);
+  }
+
+  .lyric-line.is-active .lyric-japanese {
+    font-size: 1.18rem;
+  }
+
+  .hero {
+    gap: 24px;
+    padding: 28px 0 58px;
+  }
+
+  h1 {
+    margin-bottom: 20px;
+    font-size: clamp(3.15rem, 16vw, 4.7rem);
+  }
+
+  .intro {
+    margin-bottom: 26px;
+    font-size: 1rem;
+  }
+
+  .stock-panel-heading {
+    display: grid;
+    gap: 4px;
+    padding: 12px 14px;
+  }
+
+  .stock-row {
+    grid-template-columns: 10px minmax(0, 1fr);
+    gap: 7px 10px;
+    padding: 13px 14px;
+    font-size: .7rem;
+  }
+
+  .stock-row strong {
+    grid-column: 2;
+    justify-self: start;
+    font-size: .66rem;
+  }
+
+  .wheel-stage {
+    padding: 20px 15px 15px;
+  }
+
+  .wheel-shell {
+    padding: 8px;
+    box-shadow:
+      0 0 0 5px #f4d991,
+      0 0 0 8px var(--ink),
+      0 18px 48px rgba(24, 23, 37, .22);
+  }
+
+  .pointer {
+    top: 0;
+    transform: translateX(-50%) scale(.76);
+  }
+
+  .pointer.is-jumping {
+    animation: pointerJumpMobile .38s ease;
+  }
+
+  .spin-button {
+    width: clamp(78px, 29%, 96px);
+    border-width: 5px;
+  }
+
+  .spin-button span {
+    font-size: 1.05rem;
+  }
+
+  .spin-button small {
+    font-size: .54rem;
+  }
+
+  .game-status {
+    margin-top: 20px;
+    padding: 0 8px;
+    font-size: .66rem;
+    line-height: 1.5;
+  }
+
+  .prizes {
+    padding: 64px 0 56px;
+  }
+
+  .section-heading {
+    display: block;
+    margin-bottom: 26px;
+  }
+
+  .prize-event-note {
+    margin-top: 18px;
+    text-align: left;
+  }
+
+  .section-heading h2,
+  .history-section h2 {
+    font-size: clamp(2.2rem, 12vw, 3.3rem);
+  }
+
+  .prize-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .prize-card,
+  .prize-card:last-child {
+    min-height: 390px;
+    grid-column: auto;
+    border-radius: 22px;
+  }
+
+  .prize-copy {
+    padding: 25px;
+  }
+
+  .prize-copy h3 {
+    font-size: 2.25rem;
+  }
+
+  .prize-glyph {
+    font-size: 10rem;
+  }
+
+  .history-section {
+    gap: 24px;
+    padding: 60px 0;
+  }
+
+  .history-list li {
+    grid-template-columns: 25px 8px minmax(0, 1fr) auto;
+    gap: 9px;
+    font-size: .7rem;
+  }
+
+  footer {
+    display: grid;
+    gap: 8px;
+    padding-bottom: 28px;
+  }
+
+  .result-dialog {
+    width: calc(100% - 24px);
+    max-height: calc(100dvh - 24px);
+    overflow-y: auto;
+    border-radius: 24px;
+    padding: 28px 18px 20px;
+  }
+
+  .result-image-wrap {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 18px;
+    font-size: 5rem;
+  }
+
+  .result-dialog h2 {
+    font-size: clamp(2rem, 12vw, 3rem);
+  }
+
+  .language-transition::before,
+  .language-transition::after {
+    width: calc(50% - 100px);
+  }
+
+  .language-transition strong {
+    font-size: clamp(3.5rem, 20vw, 5.5rem);
+  }
+}
+
+@keyframes pointerJumpMobile {
+  40% { transform: translateX(-50%) scale(.84) rotate(12deg); }
+  75% { transform: translateX(-50%) scale(.76) rotate(-7deg); }
 }
 
 @media (prefers-reduced-motion: reduce) {
